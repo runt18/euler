@@ -15,10 +15,10 @@ dijkstra = (m) ->
     size = m.length - 1
     queue = (new Vertex(x, y) for y in [0..size] for x in [0..size])
 
-    for i in [0..size]
-        for j in [0..size]
-            queue[i][j].neighbours.push(new Edge(queue[i][j + 1], m[i][j + 1])) if j < size
-            queue[i][j].neighbours.push(new Edge(queue[i + 1][j], m[i + 1][j])) if i < size
+    for row, i in queue
+        for cell, j in row
+            cell.neighbours.push(new Edge(queue[i][j + 1], m[i][j + 1])) if j < size
+            cell.neighbours.push(new Edge(queue[i + 1][j], m[i + 1][j])) if i < size
 
     queue = _.flatten(queue)
     queue[0].distance = 0
