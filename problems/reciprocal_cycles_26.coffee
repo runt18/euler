@@ -22,7 +22,7 @@ longest_pattern = (s) ->
     return min
 
 for d in [1...100]
-    dec = (1 / d).toString()[2..]
+    dec = (1 / d).toFixed(20)[2..]
     if dec
         console.log 1 / d, longest_pattern dec
 

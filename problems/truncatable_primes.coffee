@@ -13,6 +13,7 @@ i = 10
 
 while n < 11
     if truncations(i).every(is_prime)
+        console.log i
         sum += i
         n++
     i++
